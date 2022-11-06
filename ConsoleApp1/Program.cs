@@ -20,7 +20,7 @@ public class Program
         if (Convert.ToDouble(number) > 0)
         {
             Console.WriteLine("Your wallet: " + number);
-            menu.InitiateMenu();
+            menu.InitiateMenuAndBuy();
         }
         else if(Convert.ToDouble(number) == 0)
         {

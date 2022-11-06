@@ -19,12 +19,47 @@ namespace ConsoleApp1
                 Console.WriteLine("2. Print Meats");
                 Console.WriteLine("3. Print Drinks");
                 Console.WriteLine("4. Print Veggies");
+                Console.WriteLine("5. Exit");
+                var input = GetSelection();
+                switch (input)
+                {
+                    case 0:
+                        continue;
+                    case 1:
+                        PrintCandies();
+                        break;
+                    case 2:
+                        PrintMeats();
+                        break;
+                    case 3:
+                        PrintDrinks();
+                        break;
+                    case 4:
+                        PrintVeggies();
+                        break;
+                    case 5:
+                        Console.WriteLine("Exitting");
+                        break;
+                }
+            }
+        }
+
+        public void InitiateMenuAndBuy()
+        {
+            bool isAlive = true;
+            while (isAlive)
+            {
+                Console.WriteLine("1. Print Candies");
+                Console.WriteLine("2. Print Meats");
+                Console.WriteLine("3. Print Drinks");
+                Console.WriteLine("4. Print Veggies");
                 Console.WriteLine("5. Buy Candies");
                 Console.WriteLine("6. Buy Meats");
                 Console.WriteLine("7. Buy Drinks");
                 Console.WriteLine("8. Buy Veggies");
                 Console.WriteLine("9. Print Shopping Cart");
                 Console.WriteLine("10. Buy");
+                Console.WriteLine("11. Exit");
                 var input = GetSelection();
                 switch (input)
                 {
@@ -60,6 +95,9 @@ namespace ConsoleApp1
                     case 10:
                         ShoppingCart.PrintCart();
                         Console.WriteLine("Bought");
+                        break;
+                    case 11:
+                        Console.WriteLine("Exitting");
                         break;
                 }
             }
