@@ -16,14 +16,18 @@ namespace ConsoleApp1.Entities
             Products.Add(product);
         }
 
+        public static void CountTotal()
+        {
+
+        }
+
         public static void PrintCart()
         {
+            Console.WriteLine("Your shopping cart:");
             foreach (var product in Products)
             {
                 Console.WriteLine(product);
             }
         }
-
-
     }
 }

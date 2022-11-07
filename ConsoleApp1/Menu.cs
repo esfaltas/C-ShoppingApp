@@ -10,15 +10,41 @@ namespace ConsoleApp1
 {
     internal class Menu
     {
+        int number;
+        public void Start()
+        {
+            var menu = new Menu();
+            Console.WriteLine("Deposit money to buy");
+            string money = Console.ReadLine();
+            Console.WriteLine("");
+            bool isNumerical = int.TryParse(money, out number);
+            while (isNumerical)
+            {
+                if (Convert.ToDouble(number) > 0)
+                {
+                    Console.WriteLine("Your wallet: " + number);
+                    InitiateMenuAndBuy();
+                }
+                else if (Convert.ToDouble(number) == 0)
+                {
+                    InitiateMenu();
+                }
+            }
+            {
+                Console.WriteLine("That is not a valid currency");
+                Start();
+            }
+        }
+
         public void InitiateMenu()
         {
             bool isAlive = true;
             while (isAlive)
             {
-                Console.WriteLine("1. Print Candies");
-                Console.WriteLine("2. Print Meats");
-                Console.WriteLine("3. Print Drinks");
-                Console.WriteLine("4. Print Veggies");
+                Console.WriteLine("1. See Candies");
+                Console.WriteLine("2. See Meats");
+                Console.WriteLine("3. See Drinks");
+                Console.WriteLine("4. See Veggies");
                 Console.WriteLine("5. Exit");
                 var input = GetSelection();
                 switch (input)
@@ -38,7 +64,8 @@ namespace ConsoleApp1
                         PrintVeggies();
                         break;
                     case 5:
-                        Console.WriteLine("Exitting");
+                        Console.WriteLine("Thank you for visiting");
+                        System.Environment.Exit(0);
                         break;
                 }
             }
@@ -49,15 +76,15 @@ namespace ConsoleApp1
             bool isAlive = true;
             while (isAlive)
             {
-                Console.WriteLine("1. Print Candies");
-                Console.WriteLine("2. Print Meats");
-                Console.WriteLine("3. Print Drinks");
-                Console.WriteLine("4. Print Veggies");
-                Console.WriteLine("5. Buy Candies");
-                Console.WriteLine("6. Buy Meats");
-                Console.WriteLine("7. Buy Drinks");
-                Console.WriteLine("8. Buy Veggies");
-                Console.WriteLine("9. Print Shopping Cart");
+                Console.WriteLine("1. See Candies");
+                Console.WriteLine("2. See Meats");
+                Console.WriteLine("3. See Drinks");
+                Console.WriteLine("4. See Veggies");
+                Console.WriteLine("5. Add Candies to cart");
+                Console.WriteLine("6. Add Meat to cart");
+                Console.WriteLine("7. Add Drinks to cart");
+                Console.WriteLine("8. Add Veggies to cart");
+                Console.WriteLine("9. Check Shopping Cart");
                 Console.WriteLine("10. Buy");
                 Console.WriteLine("11. Exit");
                 var input = GetSelection();
@@ -93,7 +120,7 @@ namespace ConsoleApp1
                         ShoppingCart.PrintCart();
                         break;
                     case 10:
-                        CheckOut.BuyCart();
+                        ShoppingCart.CountTotal();
                         Console.WriteLine("Thank you for buying");
                         break;
                     case 11:
@@ -106,54 +133,87 @@ namespace ConsoleApp1
 
         public void BuyCandies()
         {
+            Console.WriteLine("Choose the number of candy you want to add to the cart:");
             var selectedCandy = GetSelection();
             var candy = CandyR1.Candies[selectedCandy - 1];
-            if (candy is null)
+            if (candy is null || number < 0 || candy.Price > number)
             {
-                Console.WriteLine($"Meat with index {selectedCandy - 1} does not exist");
+                Console.WriteLine($"Candy with index {selectedCandy - 1} does not exist or you do not have enough money"); //gal cia prasukt while loopa kad turet skirtingus options
                 return;
             }
-            ShoppingCart.AddProduct(candy.ToString());
-            Console.WriteLine($"Candies with index {selectedCandy - 1} were added to your shopping cart");
+            else
+            {
+                ShoppingCart.AddProduct(candy.ToString());
+                decimal CountTotal = number - candy.Price;
+                Console.WriteLine($"Candy with index {selectedCandy - 1} was added to your shopping cart");
+                Console.WriteLine($"You have {CountTotal} Euros left in your wallet.");
+                decimal CountTotal1 = CountTotal;
+                number = (int)CountTotal1;
+            }
         }
 
         public void BuyMeat()
         {
+            Console.WriteLine("Choose the number of meat you want to add to the cart:");
             var selectedMeat = GetSelection();
             var meat = MeatR1.Meats[selectedMeat - 1];
-            if (meat is null)
+            if (meat is null || number < 0 || meat.Price > number)
             {
-                Console.WriteLine($"Meat with index {selectedMeat - 1} does not exist");
+                Console.WriteLine($"Meat with index {selectedMeat - 1} does not exist or you do not have enough money"); 
                 return;
             }
-            ShoppingCart.AddProduct(meat.ToString());
-            Console.WriteLine($"Meat with index {selectedMeat - 1} was added to your shopping cart");
+            else
+            {
+                ShoppingCart.AddProduct(meat.ToString());
+                decimal CountTotal = number - meat.Price;
+                Console.WriteLine($"Meat with index {selectedMeat - 1} was added to your shopping cart");
+                Console.WriteLine($"You have {CountTotal} Euros left in your wallet.");
+                decimal CountTotal1 = CountTotal;
+                number = (int)CountTotal1;
+            }
         }
 
         public void BuyDrinks()
         {
+            Console.WriteLine("Choose the number of drink you want to add to the cart:");
             var selectedDrink = GetSelection();
             var drink = DrinksR1.Drinks[selectedDrink - 1];
-            if (drink is null)
+            if (drink is null || number < 0 || drink.Price > number)
             {
-                Console.WriteLine($"Meat with index {selectedDrink - 1} does not exist");
+                Console.WriteLine($"Meat with index {selectedDrink - 1} does not exist or you do not have enough money");
                 return;
             }
-            ShoppingCart.AddProduct(drink.ToString());
-            Console.WriteLine($"Drink with index {selectedDrink - 1} was added to your shopping cart");
+            else
+            {
+                ShoppingCart.AddProduct(drink.ToString());
+                decimal CountTotal = number - drink.Price;
+                Console.WriteLine($"Meat with index {selectedDrink - 1} was added to your shopping cart");
+                Console.WriteLine($"You have {CountTotal} Euros left in your wallet.");
+                decimal CountTotal1 = CountTotal;
+                number = (int)CountTotal1;
+            }
         }
 
         public void BuyVeggies()
         {
+            Console.WriteLine("Choose the number of veggies you want to add to the cart:");
             var selectedVeggies = GetSelection();
             var veggies = VegetablesR1.Vegetables[selectedVeggies - 1];
-            if (veggies is null)
+            if (veggies is null || number < 0 || veggies.Price > number)
             {
-                Console.WriteLine($"Meat with index {selectedVeggies - 1} does not exist");
+                Console.WriteLine($"Meat with index {selectedVeggies - 1} does not exist or you do not have enough money");
                 return;
             }
-            ShoppingCart.AddProduct(veggies.ToString());
-            Console.WriteLine($"Veggies with index {selectedVeggies - 1} were added to your shopping cart");
+            else
+            {
+                ShoppingCart.AddProduct(veggies.ToString());
+                decimal CountTotal = number - veggies.Price;
+                decimal Price1 = veggies.Price;
+                Console.WriteLine($"Meat with index {selectedVeggies - 1} was added to your shopping cart");
+                Console.WriteLine($"You have {CountTotal} Euros left in your wallet.");
+                decimal CountTotal1 = CountTotal;
+                number = (int)CountTotal1;
+            }
         }
 
         public void PrintCandies()
