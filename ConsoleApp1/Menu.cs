@@ -93,11 +93,12 @@ namespace ConsoleApp1
                         ShoppingCart.PrintCart();
                         break;
                     case 10:
-                        ShoppingCart.PrintCart();
-                        Console.WriteLine("Bought");
+                        CheckOut.BuyCart();
+                        Console.WriteLine("Thank you for buying");
                         break;
                     case 11:
-                        Console.WriteLine("Exitting");
+                        Console.WriteLine("Thank you for visiting");
+                        System.Environment.Exit(0);
                         break;
                 }
             }
