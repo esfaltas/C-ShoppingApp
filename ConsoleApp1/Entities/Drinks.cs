@@ -13,8 +13,7 @@ namespace ConsoleApp1.Entities
 
         public override string? ToString()
         {
-            return $"Drink {Name} with {Liter}ml of calories. Cost {Price} Euro";
-            Price = Products.ReferenceEquals(Price, Liter) ? 1 : 0;
+            return $"{Id}. {Name} with {Liter}g of sugar. Cost {Price} Euro";
         }
     }
 }

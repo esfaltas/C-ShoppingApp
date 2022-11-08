@@ -9,16 +9,16 @@ namespace ConsoleApp1.Entities
 {
     internal class ShoppingCart
     {
-        private static List<string> Products = new();
+        private static List<Products> Products = new();
 
-        public static void AddProduct(string product)
+        public static void AddProduct(Products product)
         {
             Products.Add(product);
         }
 
-        public static void CountTotal()
+        public static void RemoveCart()
         {
-
+            Products.Clear();
         }
 
         public static void PrintCart()
@@ -29,5 +29,24 @@ namespace ConsoleApp1.Entities
                 Console.WriteLine(product);
             }
         }
+
+        private static List<Products> Cost = new();
+
+        public static void AddCost(Products Price)
+        {
+            Cost.Add(Price);
+        }
+
+        public static void PrintCost()
+        {
+            double shoppingCartSum = 0;
+            foreach (var price in Products)
+            {
+                shoppingCartSum = shoppingCartSum + Convert.ToDouble(price.Price);
+            }
+            Console.WriteLine($"Total cost: {shoppingCartSum} Euros");
+            Console.WriteLine(" ");
+        }
     }
 }
+

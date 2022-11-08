@@ -1,5 +1,5 @@
-Name,Price,Barcode,Weight,Liter
-Pepsi1,10,4111,500,4
-Pepsi2,20,4112,600,3
-Pepsi3,30,4113,700,5
-Pepsi4,40,4114,800,2
+Id,Name,Price,Barcode,Weight,Liter
+1,Pepsi1,10,4111,500,4
+2,Pepsi2,20,4112,600,3
+3,Pepsi3,30,4113,700,5
+4,Pepsi4,40,4114,800,2

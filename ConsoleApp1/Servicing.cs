@@ -20,16 +20,15 @@ namespace ConsoleApp1
                 string[] productDataArray = lines[i].Split(',');
                 var candy = new Candy
                 {
-                    Name = productDataArray[0],
-                    Price = Convert.ToDecimal(productDataArray[1]),
-                    Barcode = productDataArray[2],
-                    Weight = Convert.ToDouble(productDataArray[3]),
-                    SugarAmountInGrams = Convert.ToDouble(productDataArray[4])
+                    Id = productDataArray[0],
+                    Name = productDataArray[1],
+                    Price = Convert.ToDecimal(productDataArray[2]),
+                    Barcode = productDataArray[3],
+                    Weight = Convert.ToDouble(productDataArray[4]),
+                    SugarAmountInGrams = Convert.ToDouble(productDataArray[5])
                 };
-
                 candies.Add(candy);
             }
-
             return candies;
         }
 
@@ -44,16 +43,15 @@ namespace ConsoleApp1
                 string[] productDataArray = lines[i].Split(',');
                 var meat = new Meat
                 {
-                    Name = productDataArray[0],
-                    Price = Convert.ToDecimal(productDataArray[1]),
-                    Barcode = productDataArray[2],
-                    Weight = Convert.ToDouble(productDataArray[3]),
-                    Protein = Convert.ToDouble(productDataArray[4])
+                    Id = productDataArray[0],
+                    Name = productDataArray[1],
+                    Price = Convert.ToDecimal(productDataArray[2]),
+                    Barcode = productDataArray[3],
+                    Weight = Convert.ToDouble(productDataArray[4]),
+                    Protein = Convert.ToDouble(productDataArray[5])
                 };
-
                 meats.Add(meat);
             }
-
             return meats;
         }
 
@@ -68,16 +66,15 @@ namespace ConsoleApp1
                 string[] productDataArray = lines[i].Split(',');
                 var drink = new Drinks
                 {
-                    Name = productDataArray[0],
-                    Price = Convert.ToDecimal(productDataArray[1]),
-                    Barcode = productDataArray[2],
-                    Weight = Convert.ToDouble(productDataArray[3]),
-                    Liter = Convert.ToDouble(productDataArray[4])
+                    Id = productDataArray[0],
+                    Name = productDataArray[1],
+                    Price = Convert.ToDecimal(productDataArray[2]),
+                    Barcode = productDataArray[3],
+                    Weight = Convert.ToDouble(productDataArray[4]),
+                    Liter = Convert.ToDouble(productDataArray[5])
                 };
-
                 drinks.Add(drink);
             }
-
             return drinks;
         }
 
@@ -92,16 +89,15 @@ namespace ConsoleApp1
                 string[] productDataArray = lines[i].Split(',');
                 var vegetable = new Vegetables
                 {
-                    Name = productDataArray[0],
-                    Price = Convert.ToDecimal(productDataArray[1]),
-                    Barcode = productDataArray[2],
-                    Weight = Convert.ToDouble(productDataArray[3]),
-                    Fiber = Convert.ToDouble(productDataArray[4])
+                    Id = productDataArray[0],
+                    Name = productDataArray[1],
+                    Price = Convert.ToDecimal(productDataArray[2]),
+                    Barcode = productDataArray[3],
+                    Weight = Convert.ToDouble(productDataArray[4]),
+                    Fiber = Convert.ToDouble(productDataArray[5])
                 };
-
                 vegetables.Add(vegetable);
             }
-
             return vegetables;
         }
     }

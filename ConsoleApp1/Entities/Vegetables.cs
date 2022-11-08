@@ -13,7 +13,7 @@ namespace ConsoleApp1.Entities
 
         public override string? ToString()
         {
-            return $"Vegerable {Name} with {Fiber}g of fibers. Cost {Price} Euro";
+            return $"{Id}. {Name} with {Fiber}g of fibers. Cost {Price} Euro";
         }
     }
 }
